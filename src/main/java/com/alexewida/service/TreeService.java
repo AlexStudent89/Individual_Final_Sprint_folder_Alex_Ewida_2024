@@ -3,32 +3,28 @@
 package com.alexewida.service;
 
 import com.alexewida.model.BinarySearchTree;
-import java.util.List;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class TreeService {
-    private List<BinarySearchTree> treeDatabase;
 
-    public TreeService() {
-    }
+    // Initialize the mock database
+    private List<BinarySearchTree> treeDatabase = new ArrayList<>();
 
     public BinarySearchTree processNumbers(String numbers) {
         String[] numberArray = numbers.split(",");
         BinarySearchTree tree = new BinarySearchTree();
-        String[] var7 = numberArray;
-        int var6 = numberArray.length;
-
-        for(int var5 = 0; var5 < var6; ++var5) {
-            String number = var7[var5];
+        for (String number : numberArray) {
             tree.insert(Integer.parseInt(number.trim()));
         }
-
-        this.treeDatabase.add(tree);
+        treeDatabase.add(tree);
         return tree;
     }
 
     public List<BinarySearchTree> getPreviousTrees() {
-        return this.treeDatabase;
+        return treeDatabase;
     }
 }
