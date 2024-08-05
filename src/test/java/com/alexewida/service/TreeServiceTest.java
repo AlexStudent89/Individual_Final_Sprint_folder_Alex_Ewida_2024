@@ -6,6 +6,7 @@ import com.alexewida.model.BinarySearchTree;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+
 public class TreeServiceTest {
     public TreeServiceTest() {
     }
