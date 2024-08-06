@@ -2,7 +2,17 @@
 
 package com.alexewida.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class TreeNode {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private int value;
     private TreeNode left;
     private TreeNode right;
@@ -11,8 +21,20 @@ public class TreeNode {
         this.value = value;
     }
 
+    public TreeNode() {
+        // Default constructor for JPA
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public int getValue() {
-        return this.value;
+        return value;
     }
 
     public void setValue(int value) {
@@ -20,7 +42,7 @@ public class TreeNode {
     }
 
     public TreeNode getLeft() {
-        return this.left;
+        return left;
     }
 
     public void setLeft(TreeNode left) {
@@ -28,7 +50,7 @@ public class TreeNode {
     }
 
     public TreeNode getRight() {
-        return this.right;
+        return right;
     }
 
     public void setRight(TreeNode right) {

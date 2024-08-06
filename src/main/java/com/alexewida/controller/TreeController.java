@@ -10,32 +10,29 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class TreeController {
+
     @Autowired
     private TreeService treeService;
 
-    public TreeController() {
-    }
-
-    @GetMapping({"/enter-numbers"})
+    @GetMapping("/enter-numbers")
     public String enterNumbers() {
-        return "enterNumbers.html";
+        return "enterNumbers";
     }
 
-    @PostMapping({"/process-numbers"})
+    @PostMapping("/process-numbers")
     public String processNumbers(@RequestParam("numbers") String numbers, Model model) {
-        BinarySearchTree tree = this.treeService.processNumbers(numbers);
+        BinarySearchTree tree = treeService.processNumbers(numbers);
         model.addAttribute("inputNumbers", numbers);
         model.addAttribute("treeStructure", tree);
         return "treeResult";
     }
 
-    @GetMapping({"/previous-trees"})
+    @GetMapping("/previous-trees")
     public String previousTrees(Model model) {
-        model.addAttribute("trees", this.treeService.getPreviousTrees());
+        model.addAttribute("trees", treeService.getPreviousTrees());
         return "previousTrees";
     }
 }
