@@ -5,13 +5,14 @@ package com.alexewida.service;
 import com.alexewida.model.BinarySearchTree;
 import com.alexewida.model.TreeNode;
 import com.alexewida.repository.TreeRepository;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 public class TreeServiceTest {
@@ -43,6 +44,7 @@ public class TreeServiceTest {
     @Test
     public void testGetPreviousTrees() {
         treeService.processNumbers("4, 2, 5, 1, 3");
-        assertEquals(1, treeService.getPreviousTrees().size());
+
+        Assertions.assertEquals(1, treeService.getPreviousTrees());
     }
 }

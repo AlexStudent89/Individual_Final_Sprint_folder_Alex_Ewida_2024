@@ -2,10 +2,17 @@
 
 package com.alexewida.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class BinarySearchTree {
+
+    @OneToOne
     private TreeNode root;
 
     public BinarySearchTree() {
