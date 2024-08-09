@@ -6,14 +6,22 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
 
-
+@Entity
 public class TreeNode {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;  // Added ID for JPA
 
     private int value;
-    private TreeNode left;
-    private TreeNode right;
+
+    @Transient
+    private TreeNode left;  // Marked as transient since these are not stored in the database
+
+    @Transient
+    private TreeNode right; // Marked as transient since these are not stored in the database
 
     public TreeNode(int value) {
         this.value = value;
@@ -23,7 +31,13 @@ public class TreeNode {
         // Default constructor for JPA
     }
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public int getValue() {
         return value;

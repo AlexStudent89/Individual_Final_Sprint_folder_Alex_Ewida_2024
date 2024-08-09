@@ -14,8 +14,6 @@ public class TreeService {
     @Autowired
     private TreeRepository treeRepository;
 
-
-
     public BinarySearchTree processNumbers(String numbers) {
         String[] numberArray = numbers.split(",");
         BinarySearchTree tree = new BinarySearchTree();
