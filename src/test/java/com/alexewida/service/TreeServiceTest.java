@@ -57,4 +57,17 @@ public class TreeServiceTest {
         // Verify that the findAll method was called once
         verify(treeRepository, times(1)).findAll();
     }
+
+    @Test
+    public void testProcessEmptyNumbers() {
+        // Call the method with an empty string and expect a null or empty tree
+        BinarySearchTree tree = treeService.processNumbers("");
+
+        // Assert that the tree is null or empty
+        assertNull(tree);
+
+        // Verify that the save method was never called
+        verify(treeRepository, never()).save(any(TreeNode.class));
+    }
+
 }

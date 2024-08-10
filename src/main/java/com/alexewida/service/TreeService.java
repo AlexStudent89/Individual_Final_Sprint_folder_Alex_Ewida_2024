@@ -15,6 +15,10 @@ public class TreeService {
     private TreeRepository treeRepository;
 
     public BinarySearchTree processNumbers(String numbers) {
+        if (numbers == null || numbers.trim().isEmpty()) {
+            return null; // Return null or an empty tree as needed
+        }
+
         String[] numberArray = numbers.split(",");
         BinarySearchTree tree = new BinarySearchTree();
         for (String number : numberArray) {
