@@ -12,6 +12,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -43,8 +45,16 @@ public class TreeServiceTest {
 
     @Test
     public void testGetPreviousTrees() {
-        treeService.processNumbers("4, 2, 5, 1, 3");
+        // Mock the behavior of the repository to return a list containing one tree
+        when(treeRepository.findAll()).thenReturn(List.of(new TreeNode()));
 
-        Assertions.assertEquals(1, treeService.getPreviousTrees());
+        // Convert the Iterable to a List
+        List<TreeNode> previousTrees = (List<TreeNode>) treeService.getPreviousTrees();
+
+        // Call the method and check if it returns the expected size
+        assertEquals(1, previousTrees.size());
+
+        // Verify that the findAll method was called once
+        verify(treeRepository, times(1)).findAll();
     }
 }
