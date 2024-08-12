@@ -7,9 +7,10 @@
 <h1>Previous Trees</h1>
 <ul>
     <li th:each="tree : ${trees}">
-        <p>Input Numbers: [[${tree.inputNumbers}]]</p>
-        <p>Tree Structure: [[${tree.treeStructure}]]</p>
+        <p>Input Numbers: <span th:text="${tree.inputNumbers}"></span></p>
+        <p>Tree Structure: <span th:text="${tree.treeStructure}"></span></p>
     </li>
 </ul>
+<a href="/enter-numbers">Back to Enter Numbers</a>
 </body>
 </html>
