@@ -18,10 +18,10 @@ public class TreeNode {
     private int value;
 
     @Transient
-    private TreeNode left;  // Marked as transient since these are not stored in the database
+    private TreeNode left;  // Marked as transient
 
     @Transient
-    private TreeNode right; // Marked as transient since these are not stored in the database
+    private TreeNode right; // Marked as transient
 
     public TreeNode(int value) {
         this.value = value;
