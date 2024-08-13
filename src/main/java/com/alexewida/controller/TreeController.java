@@ -24,9 +24,11 @@ public class TreeController {
 
     @PostMapping("/process-numbers")
     public String processNumbers(@RequestParam("numbers") String numbers, Model model) {
+        String message= "hello";
         BinarySearchTree tree = treeService.processNumbers(numbers);
         model.addAttribute("inputNumbers", numbers);
-        model.addAttribute("treeStructure", tree);
+        model.addAttribute("treeStructure", tree.toString());
+        model.addAttribute("message", message);
         return "treeResult";
     }
 

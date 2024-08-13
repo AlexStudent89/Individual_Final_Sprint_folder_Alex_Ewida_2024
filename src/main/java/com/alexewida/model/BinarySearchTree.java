@@ -50,4 +50,13 @@ public class BinarySearchTree {
         }
 
     }
+
+    @Override
+    public String toString() {
+        return "BinarySearchTree [root=" + root.getValue() + ", inOrder()=" + inOrder() + "]";
+    }
+
+    
+
+    
 }
